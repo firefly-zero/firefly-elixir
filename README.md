@@ -20,9 +20,9 @@ This SDK is highly experimental! The Orb project is in its early alpha testing s
 
     ```elixir
     defp deps do
-        [
+      [
         {:firefly_elixir, "~> 0.1.0"}
-        ]
+      ]
     end
     ```
 
@@ -31,17 +31,16 @@ This SDK is highly experimental! The Orb project is in its early alpha testing s
 
     ```elixir
     defmodule Hello do
+      use Firefly
 
-    use Firefly
-
-    defw boot() do
+      defw boot() do
         draw_triangle(
-        %Point{x: 60, y: 10},
-        %Point{x: 40, y: 40},
-        %Point{x: 80, y: 40},
-        %Style{fill_color: :light_gray, stroke_color: :dark_blue, stroke_width: 1}
+          %Point{x: 60, y: 10},
+          %Point{x: 40, y: 40},
+          %Point{x: 80, y: 40},
+          %Style{fill_color: :light_gray, stroke_color: :dark_blue, stroke_width: 1}
         )
-    end
+      end
     end
     ```
 
