@@ -10,6 +10,7 @@ tasks:
     - git tag {{.CLI_ARGS}}
     - git push
     - git push --tags
+    - gh release create --generate-notes {{.CLI_ARGS}}
   build:
     cmds:
       - mix wasm Firefly.Demo.Triangle > main.wat
