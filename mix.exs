@@ -3,7 +3,7 @@ defmodule Firefly.MixProject do
 
   def project do
     [
-      app: :firefly,
+      app: :firefly_elixir,
       version: "0.1.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
@@ -21,7 +21,6 @@ defmodule Firefly.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:orb, git: "https://github.com/elixir-lang/gettext.git", rev: "cb0a94ea54dead5fbed387da5f52c3811ec5b667"}
       {:orb, "~> 0.0.46"}
     ]
   end
