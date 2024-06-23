@@ -1,26 +1,20 @@
 defmodule Firefly do
   use Orb
 
-  defmodule Graphics do
-    use Orb.Import, name: :graphics
-
-    defw draw_triangle(
-      p1_x: I32,
-      p1_y: I32,
-      p2_x: I32,
-      p2_y: I32,
-      p3_x: I32,
-      p3_y: I32,
-      fill_color: I32,
-      stroke_color: I32,
-      stroke_width: I32
-    )
-
+  defmacro __using__(_) do
+    quote do
+      import Firefly
+      alias Firefly.Point
+      use Orb
+      Orb.Import.register(Firefly.Bindings.Graphics)
+    end
   end
 
-  Orb.Import.register(Graphics)
+  defmodule Point do
+    defstruct [:x, :y]
+  end
 
-  defw boot() do
-    Graphics.draw_triangle(60, 10, 40, 40, 80, 40, 14, 9, 1)
+  def draw_triangle(%Point{x: x1, y: y1}, %Point{x: x2, y: y2}, %Point{x: x3, y: y3}) do
+    Firefly.Bindings.Graphics.draw_triangle(x1, y1, x2, y2, x3, y3, 14, 9, 1)
   end
 end

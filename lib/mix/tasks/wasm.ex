@@ -4,7 +4,7 @@ defmodule Mix.Tasks.Wasm do
 
   @shortdoc "Compile the project to WebAssembly."
   def run(_) do
-    Orb.to_wat(Firefly) |> IO.puts()
+    Orb.to_wat(Firefly.Demo.Triangle) |> IO.puts()
     # File.write("main.wasm", Orb.to_wasm(Firefly))
     # IO.puts("✅ saved to main.wasm")
   end
