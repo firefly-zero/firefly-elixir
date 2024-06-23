@@ -29,7 +29,8 @@ defmodule Firefly.MixProject do
 
   defp deps do
     [
-      {:orb, "~> 0.0.46"}
+      {:orb, "~> 0.0.46"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 end
