@@ -1,0 +1,4 @@
+%{
+  "expo": {:hex, :expo, "1.0.0", "647639267e088717232f4d4451526e7a9de31a3402af7fcbda09b27e9a10395a", [:mix], [], "hexpm", "18d2093d344d97678e8a331ca0391e85d29816f9664a25653fd7e6166827827c"},
+  "orb": {:hex, :orb, "0.0.46", "c5dcc8ee90287b11cd8e13c5ea7ecae9cc0196cdea7b3172669186480d53252b", [:mix], [], "hexpm", "2b93447e4ac923b793b691c7f5bd16d7c3b38d2b26287ef2813fc0665be1c7dc"},
+}

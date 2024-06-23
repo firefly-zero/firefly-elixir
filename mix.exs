@@ -21,8 +21,8 @@ defmodule Firefly.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      # {:orb, git: "https://github.com/elixir-lang/gettext.git", rev: "cb0a94ea54dead5fbed387da5f52c3811ec5b667"}
+      {:orb, "~> 0.0.46"}
     ]
   end
 end
