@@ -9,6 +9,7 @@ defmodule Firefly do
       alias Firefly.LineStyle
       alias Firefly.Style
       alias Firefly.RGB
+      alias Firefly.Angle
       use Orb
       Orb.Import.register(Firefly.Bindings.Graphics)
     end
@@ -32,6 +33,18 @@ defmodule Firefly do
 
   defmodule RGB do
     defstruct [:r, :g, :b]
+  end
+
+  defmodule Angle do
+    defstruct [:r]
+
+    def from_radians(r) when is_float(r), do: %Angle{r: r}
+    def from_degrees(d) when is_float(d), do: %Angle{r: d * pi() / 180.0}
+    def half_circle(), do: %Angle{r: pi()}
+    def full_circle(), do: %Angle{r: 2.0 * pi()}
+    def quarter_circle(), do: %Angle{r: pi() / 2.0}
+    def zero(), do: %Angle{r: 0}
+    defp pi(), do: 3.14159265358979323846264338327950288
   end
 
   def clear_screen(color) do
@@ -66,6 +79,43 @@ defmodule Firefly do
     )
   end
 
+  def draw_rounded_rect(p = %Point{}, b = %Size{}, corners = %Size{}, s = %Style{}) do
+    Firefly.Bindings.Graphics.draw_rounded_rect(
+      p.x,
+      p.y,
+      b.w,
+      b.h,
+      corners.w,
+      corners.h,
+      parse_color(s.fill_color),
+      parse_color(s.stroke_color),
+      s.stroke_width
+    )
+  end
+
+  def draw_circle(p = %Point{}, diameter, s = %Style{}) when is_integer(diameter) do
+    Firefly.Bindings.Graphics.draw_circle(
+      p.x,
+      p.y,
+      diameter,
+      parse_color(s.fill_color),
+      parse_color(s.stroke_color),
+      s.stroke_width
+    )
+  end
+
+  def draw_ellipse(p = %Point{}, b = %Size{}, s = %Style{}) do
+    Firefly.Bindings.Graphics.draw_ellipse(
+      p.x,
+      p.y,
+      b.w,
+      b.h,
+      parse_color(s.fill_color),
+      parse_color(s.stroke_color),
+      s.stroke_width
+    )
+  end
+
   def draw_triangle(a = %Point{}, b = %Point{}, c = %Point{}, s = %Style{}) do
     Firefly.Bindings.Graphics.draw_triangle(
       a.x,
@@ -74,6 +124,46 @@ defmodule Firefly do
       b.y,
       c.x,
       c.y,
+      parse_color(s.fill_color),
+      parse_color(s.stroke_color),
+      s.stroke_width
+    )
+  end
+
+  def draw_arc(
+        p = %Point{},
+        diameter,
+        angle_start = %Angle{},
+        angle_sweep = %Angle{},
+        s = %Style{}
+      )
+      when is_integer(diameter) do
+    Firefly.Bindings.Graphics.draw_arc(
+      p.x,
+      p.y,
+      diameter,
+      angle_start.r,
+      angle_sweep.r,
+      parse_color(s.fill_color),
+      parse_color(s.stroke_color),
+      s.stroke_width
+    )
+  end
+
+  def draw_sector(
+        p = %Point{},
+        diameter,
+        angle_start = %Angle{},
+        angle_sweep = %Angle{},
+        s = %Style{}
+      )
+      when is_integer(diameter) do
+    Firefly.Bindings.Graphics.draw_sector(
+      p.x,
+      p.y,
+      diameter,
+      angle_start.r,
+      angle_sweep.r,
       parse_color(s.fill_color),
       parse_color(s.stroke_color),
       s.stroke_width
