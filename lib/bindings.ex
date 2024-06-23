@@ -1,4 +1,5 @@
 defmodule Firefly.Bindings do
+  @moduledoc false
   use Orb
 
   defmodule Graphics do
