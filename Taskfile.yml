@@ -1,0 +1,11 @@
+# https://taskfile.dev
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - mix wasm > main.wat
+      - wat2wasm main.wat -o main.wasm
+      - firefly_cli build
+  default:
+    - task: build

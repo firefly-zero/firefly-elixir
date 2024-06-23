@@ -1,0 +1,7 @@
+author_id = "demo"
+app_id = "elixir-triangle"
+author_name = "Demo"
+app_name = "Triangle Demo (Elixir)"
+
+[files]
+_bin = { path = "main.wasm", copy = true }
