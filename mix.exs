@@ -7,18 +7,26 @@ defmodule Firefly.MixProject do
       version: "0.1.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      description: "The official SDK for making Firefly Zero apps and games",
+      package: package(),
+      deps: deps(),
+      name: "Firefly Elixir",
+      source_url: "https://github.com/firefly-zero/firefly-elixir"
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
+    []
+  end
+
+  defp package() do
     [
-      extra_applications: [:logger]
+      name: "firefly_elixir",
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/firefly-zero/firefly-elixir"}
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
       {:orb, "~> 0.0.46"}

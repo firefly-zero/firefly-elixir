@@ -2,6 +2,14 @@
 version: '3'
 
 tasks:
+  release:
+    - test {{.CLI_ARGS}}
+    - grep {{.CLI_ARGS}} mix.exs
+    # https://hex.pm/docs/publish
+    - mix hex.publish
+    - git tag {{.CLI_ARGS}}
+    - git push
+    - git push --tags
   build:
     cmds:
       - mix wasm Firefly.Demo.Triangle > main.wat
