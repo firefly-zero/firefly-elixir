@@ -135,4 +135,14 @@ defmodule Firefly.Bindings do
 
     defw(draw_image(ptr: I32, len: I32, x: I32, y: I32))
   end
+
+  defmodule Misc do
+    use Orb.Import, name: :misc
+
+    defw(log_debug(ptr: I32, len: I32))
+    defw(log_error(ptr: I32, len: I32))
+    defw(set_seed(seed: I32))
+    defw(get_random(), I32)
+    defw(quit())
+  end
 end
