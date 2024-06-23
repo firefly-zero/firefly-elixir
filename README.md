@@ -5,6 +5,11 @@ The official SDK for writing apps and games for [Firefly Zero](https://fireflyze
 > **Warning**
 This SDK is highly experimental! The Orb project is in its early alpha testing stage and has a lot of rough edges and missed features. As a consequence, the SDK itself also doesn't implement some of the functions available in other SDKs.
 
+* [▶️ runtime docs](https://docs.fireflyzero.com/dev/getting-started/)
+* [📄 api docs](https://hexdocs.pm/firefly_elixir/api-reference.html)
+* [📦 hex.pm](https://hex.pm/packages/firefly_elixir)
+* [🐙 github](https://github.com/firefly-zero/firefly-elixir)
+
 ## Usage
 
 1. [Install Elixir](https://elixir-lang.org/install.html)
