@@ -137,6 +137,13 @@ defmodule Firefly.Bindings do
     defw(draw_image(ptr: I32, len: I32, x: I32, y: I32))
   end
 
+  defmodule Input do
+    use Orb.Import, name: :input
+
+    defw(read_pad(player: I32), I32)
+    defw(read_buttons(player: I32), I32)
+  end
+
   defmodule Misc do
     use Orb.Import, name: :misc
 

@@ -13,7 +13,7 @@ tasks:
     - gh release create --generate-notes {{.CLI_ARGS}}
   build:
     cmds:
-      - mix wasm Firefly.Demo.Triangle > main.wat
+      - mix wasm Firefly.Demo.Input > main.wat
       - wat2wasm main.wat -o main.wasm
       - firefly_cli build
   default:
